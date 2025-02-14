@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day, My Love!</title>
+    <!-- Link to Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Link to custom CSS -->
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+            background-color: #f9f2f4;
+        }
+        /* Background Animation */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url('./My\ love.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            animation: pulse 10s ease-in-out infinite;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            animation: fadeIn 2.5s ease-out;
+        }
+
+        /* Button Styling */
+        .btn-love {
+            background-color: #ff6b81;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 20px;
+            border-radius: 25px;
+            transition: 0.3s;
+            margin-top: 30px; /* Added margin-top to push the button down */
+            animation: fadeIn 3s ease-out;
+        }
+
+        .btn-love:hover {
+            background-color: #f74e65;
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+
+        /* Smooth Fade In Effect */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Love Message */
+        .message {
+            display: none;
+            font-size: 24px;
+            font-style: italic;
+            text-align: center;
+            margin-top: 50px;
+            animation: fadeIn 3s ease-out;
+        }
+
+        .heart {
+            color: #ff6b81;
+            font-size: 60px;
+            animation: bounce 1.5s infinite;
+        }
+
+        /* Bouncing Heart Animation */
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        /* Quote Section */
+        .quote-section {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .quote-text {
+            font-size: 26px;
+            font-style: italic;
+            color: #ff6b81;
+            animation: fadeIn 2s ease-out;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Hero Section -->
+<div class="hero">
+    <div class="container">
+        <h1>Happy Valentine's Day, My Love!</h1>
+        <p class="lead">Every moment with you is a blessing. I am so thankful for your love!</p>
+        <!-- Add margin-top to avoid overlap with text -->
+        <button class="btn-love" onclick="showMessage()">Read My Love Letter</button>
+        <div class="heart">❤️</div>
+    </div>
+</div>
+
+<!-- Romantic Quotes Section -->
+<div class="quote-section">
+    <div class="quote-text" id="quoteText">
+        "You are my today and all of my tomorrows." - Leo Christopher
+    </div>
+</div>
+
+<!-- Love Message Section -->
+<div class="container message" id="messageBox">
+    <p>To the love of my life,</p>
+    <p>Every day with you feels like a dream come true. Your love makes me feel complete, and I can't imagine my life without you. I'm so grateful to call you mine.</p>
+    <p>Happy Valentine's Day!</p>
+</div>
+
+    <div class="container text-center valentine-container">
+        <button class="btn btn-danger love-btn" onclick="showHearts()">Send Love 💖</button>
+    </div>
+
+    <div id="heart-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<!-- Bootstrap JS and Custom JS -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+<script>
+    // Love Quote Array
+    const quotes = [
+        '"You are my today and all of my tomorrows." - Leo Christopher',
+        '"Love is not just looking at each other, it’s looking in the same direction." - Antoine de Saint-Exupéry',
+        '"In all the world, there is no heart for me like yours." - Maya Angelou',
+        '"I love you more than I have ever found a way to say to you." - Ben Folds',
+        '"You are my heart, my life, my one and only thought." - Arthur Conan Doyle'
+    ];
+
+    let currentQuote = 0;
+
+    // Function to change quotes every 5 seconds
+    function changeQuote() {
+        currentQuote++;
+        if (currentQuote >= quotes.length) {
+            currentQuote = 0;
+        }
+        document.getElementById('quoteText').innerHTML = quotes[currentQuote];
+    }
+
+    // Change quote every 5 seconds
+    setInterval(changeQuote, 5000);
+
+    // Show the love message
+    function showMessage() {
+        document.getElementById("messageBox").style.display = "block";
+    }
+</script>
+
+</body>
+</html>
